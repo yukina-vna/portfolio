@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio|contact</title>
+    <meta name="description" content="ポートフォリオのcontactページです。">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../android-chrome-256x256.png">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="../js/script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="header">
+        <img class="header_bg" src="../images/header.png" alt="header">
+        <div class="header_inner">
+            <div class="header_logo"><a href="../index.html"><img src="../images/logo.svg" alt="logo"></a></div>
+            <nav class="header_menu_pc">
+                <ul>
+                    <li><a class="js-header" href="../index.html">home</a></li>
+                    <li><a class="js-header" href="../concept/index.html">concept</a></li>
+                    <li><a class="js-header" href="../about/index.html">about me</a></li>
+                    <li><a class="js-header" href="../works/index.html">works</a></li>
+                    <li><a class="js-header" href="../contact/index.html">contact</a></li>
+                </ul>
+            </nav>
+            <div class="sp_btn">
+                <span></span>
+                <span></span>
+                <p>menu</p>
+            </div>
+            <nav class="sp_nav">
+                <ul>
+                    <li><a href="../index.html">home</a></li>
+                    <li><a href="../concept/index.html">concept</a></li>
+                    <li><a href="../about/index.html">about me</a></li>
+                    <li><a href="../works/index.html">works</a></li>
+                    <li><a href="../contact/index.html">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <section id="contact_title">
+        <div class="contact_top">
+            <div class="contact_text">
+                <h2>お問い合わせ</h2>
+                <p>Contact</p>
+            </div>
+            <div class="contact_clock"><img src="images/contact_clock.svg" alt="水縹の時計"></div>
+        </div>
+        <div class="contact_desc_sp">
+            当サイトをご覧いただきありがとうございます。<br>ご依頼やご相談などは、こちらからご記入お願いします。<br>どんなことでも、お気軽にご相談ください。
+        </div>
+    </section>
+
+    <form
+        action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfIYxEI1yTnDHFUySbBAJdl4TDP86McjEtz0xxR_AilNagYIQ/formResponse"
+        method="POST" target="hidden_iframe" onsubmit="submitted=true;" class="c-form">
+        <div class="contact_form">
+            <div class="contact_desc">
+                当サイトをご覧いただきありがとうございます。<br>ご依頼やご相談などは、こちらからご記入お願いします。<br>どんなことでも、お気軽にご相談ください。
+            </div>
+            <div>
+                <label for="name">お名前</label>
+                <input type="text" id="name" name="entry.391617358" required="required">
+            </div>
+
+            <div>
+                <label for="furigana">フリガナ</label>
+                <input type="text" id="furigana" name="entry.1082860329" required="required">
+            </div>
+
+            <div>
+                <label for="phone">電話番号</label>
+                <input type="text" id="phone" name="entry.558805527" required="required">
+            </div>
+
+            <div>
+                <label for="email">メールアドレス</label>
+                <input type="email" id="email" name="entry.743832899" required="required">
+            </div>
+
+            <div>
+                <label for="message">お問い合わせ内容</label>
+                <textarea name="entry.124229959" id="message"></textarea>
+            </div>
+
+            <button class="btn" type="submit">
+                <span class="contact_button">
+                    <span class="btn-inner">send</span>
+                </span>
+            </button>
+        </div>
+    </form>
+
+    <div class="bottom_circle">
+        <div class="bottom1"><img src="../images/bottom_circle1@2x.png" alt=""></div>
+        <div class="bottom2"><img src="../images/bottom_circle2@2x.png" alt=""></div>
+        <div class="bottom3"><img src="../images/bottom_circle3@2x.png" alt=""></div>
+    </div>
+
+    <div id="footer">
+        <div class="footer_menu">
+            <ul>
+                <li><a href="../index.html">home</a></li>
+                <li><a href="../concept/index.html">concept</a></li>
+                <li><a href="../about/index.html">about me</a></li>
+                <li><a href="../works/index.html">works</a></li>
+                <li><a href="../contact/index.html">contact</a></li>
+            </ul>
+        </div>
+        <small>&copy;Nacht Design</small>
+    </div>
+    <script>
+        let submitted = false;
+    </script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none"
+        onload="if(submitted){window.location='../thanks/index.html';}"></iframe>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+    border: none;
+}
+
+.header_logo {
+    width: 120px;
+    position: absolute;
+    top: 12px;
+    left: 5%;
+}
+
+.top_menu_pc {
+    color: #fffddf;
+    position: absolute;
+    top: 50px;
+    right: 5%;
+}
+.top_menu_pc ul {
+    display: flex;
+} /*# sourceMappingURL=style.css.map */

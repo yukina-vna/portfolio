@@ -1,0 +1,90 @@
+
+// .mv_main {
+//     position: relative;
+// }
+.mv_main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    // ないと画面幅を縮めていくと画像の縦横比が変わってしまう
+    min-height: 755px;
+    margin-bottom: 97px;
+}
+
+
+.thanks_circle {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    // 位置の調整
+    width: 41.7vw;
+    min-width: 510px;
+    height: 41.7vw;
+    min-height: 510px;
+    border-radius: 50%;
+    background: rgba(255,241,197,0.3);
+
+    // position: absolute;
+    // z-index: 400;
+    // top: 40%;
+    // left: 30%;
+    // width: 570px;
+    // height: 570px;
+    // border-radius: 50%;
+    // background: #fff1c5;
+    // opacity: 0.5 ;
+//    円の大きさを画面幅に対応させたい（570pxだと画面を縮めていった時に大きすぎる）
+}
+.thanks_en {
+    // z-index: 500;
+    font-size: 70px;
+    font-family: "brush-script-std";
+    // position: absolute;
+    // top: 15%;
+    // left: 25%;
+    color: #fffddf;
+    // opacity: 1;
+}
+.thanks_ja
+{
+    font-size: 17px;
+    line-height: 1.76;
+    text-align: center;
+    // position: absolute;
+    // top: 50%;
+    color: #fffddf;
+    margin-top: 65px;
+}
+
+.bottom_circle {
+    margin-top: 105px;
+}
+
+@media screen and (max-width: 767px) {
+    .thanks_circle {
+        min-width: 300px;
+        min-height: 300px;
+    }
+    .thanks_en {
+        font-size: 40px;
+        padding-top: 30px;
+    }
+    .thanks_ja {
+        margin-top: 40px;
+        font-size: 13px;
+        line-height: 1.76;
+        font-feature-settings: "palt";
+    }
+    .mv_main_sp {
+        margin-bottom: 97px;
+    }
+    .sp_btn {
+        top: 8%;
+    }
+}
+

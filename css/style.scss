@@ -1,0 +1,889 @@
+$main-color: #fffddf;
+$base-color: #fffef5;
+$sky1-color: #18448e;
+$sky2-color: #211e55;
+$sky3-color: #191c32;
+$sky4-color: #7ec7d8;
+
+// スクロールできるのはなぜ？？：解決 リセットCSS更新
+
+body {
+    padding-top: 0;
+}
+
+.loader {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #fffddf;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .loader_sun {
+    width: 100px;
+    animation: anim 2.3s;
+  }
+  
+  @keyframes anim {
+    0% {
+      transform: translateY(0px);
+    }
+    100% {
+      transform: translateY(100px);
+    }
+  }
+  
+  .loader_box {
+    position: relative;
+    margin-top: 20px;
+    img {width: 250px;
+    }
+  }
+  .loader_text {
+    position: absolute;
+    left: 50%;
+    top: 7%;
+    transform: translate(-40%);
+    font-size: 20px;
+    color: #171c61;
+    text-align: center;
+  }
+  .loaded {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #171c61;
+    z-index: 2001;
+    top: 0;
+    left: 0;
+  }
+  
+  /* 真っ暗な背景のスタイル */
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #171c61; /* 黒の背景 */
+    z-index: 9999; /* コンテンツより前面に表示 */
+    opacity: 0; /* 最初は透明 */
+    transition: opacity 1s; /* フェードのアニメーションを追加 */
+    pointer-events: none; /* イベントの対象外にする */
+    visibility: hidden;
+  }
+  
+  // pointer-eventsを書かないと、ローディング終わった後コンテンツにさわれなくなった
+  
+  /* コンテンツを包む要素 */
+  .content {
+    visibility: hidden; /* 初期状態は非表示 */
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+
+body {
+    background-color: $base-color;
+}
+h2 {
+    font-weight: normal;
+}
+
+.header_logo_fv {
+    width: 120px;
+    position: absolute;
+    top: 5%;
+    // 位置が調整できなくなった:common.cssの方が反映されている
+    left: 5%;
+    z-index: 200;
+    
+}
+// ヘッダー途中から固定
+.is-fixed {
+    background-image: url(../images/header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 70px;
+    opacity: 1 !important;
+    transition: 0.3s;
+   img {
+        width: 70px;
+    }
+    .header_menu_pc {
+        top: 30px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .header_logo_fv {
+        width: 70px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header_logo_fv {
+        width: 50px;
+    }
+    .header_menu_pc {
+        display: none;
+    }
+    .sp_btn {
+        top: 5%;
+    }
+}
+
+.header_menu_pc {
+    position: absolute;
+    top: 70px;
+    right: 5%;
+    z-index: 200;
+
+ul{
+    display: flex;
+    }
+li {
+    padding-right: 3vw;
+    color: $main-color;
+    font-size: 17px;
+}
+ul li:last-child {
+    padding-right: 0;
+}
+
+}
+
+#mv {
+    position: relative;
+}
+
+.mv_main {
+    // position: relative;
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    z-index: -100;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    
+}
+.mv_main_sp {
+    display: none;
+}
+
+.mv_foot1 {
+    width: 60px;
+    position: absolute;
+    top: 30%;
+    left: 29%;
+    transform: rotate(-15deg);
+}
+.mv_foot2 {
+    width: 60px;
+    position: absolute;
+    top: 40%;
+    left: 23%;
+    transform: rotate(10deg);
+}
+.mv_foot3 {
+    width: 60px;
+    position: absolute;
+    top: 46%;
+    left: 30%;
+    transform: rotate(-12deg);
+}
+.mv_foot4 {
+    width: 60px;
+    position: absolute;
+    top: 55%;
+    left: 24%;
+    transform: rotate(12deg);
+}
+.mv_text {
+    color: $main-color;
+    font-size: 30px;
+    position: absolute;
+    bottom: 35%;
+    right: 10%;
+    line-height: 1.5;
+}
+
+@media screen and (max-width: 1000px) {
+    .mv_foot1 {
+        width: 35px;
+    }
+    .mv_foot2 {
+        width: 35px;
+    }
+    .mv_foot3 {
+        width: 35px;
+    }
+    .mv_foot4 {
+        width: 35px;
+    }
+    .mv_text {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .mv_main {
+        display: none;
+    }
+    .mv_main_sp {
+        display: block;
+        margin-right: calc(50% - 50vw);
+        margin-left: calc(50% - 50vw);
+        z-index: -100;
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+    .mv_foot1 {
+        width: 30px;
+        top: 50%;
+        left: 35%;
+    }
+    .mv_foot2 {
+        width: 30px;
+        top: 57%;
+    }
+    .mv_foot3 {
+        width: 30px;
+        top: 65%;
+        left: 36%;
+    }
+    .mv_foot4 {
+        width: 30px;
+        top: 75%;
+        left: 27%;
+    }
+    .mv_text {
+        font-size: 17px;
+        text-align: center;
+        line-height: 1.76;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%
+    }
+}
+
+
+.concept_text {
+    font-size: 17px;
+    line-height: 1.8;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 72px;
+}
+.concept_scroll {
+    padding-top: 70px;
+    width: 23px;
+    margin: 0 auto;
+}
+
+.about_all {
+    margin-top: 160px;
+    display: flex;
+    }
+    h2 {
+        font-size: 28px;
+    }
+    .title_sub1 {
+        color: $sky1-color;
+        font-size: 20px;
+        padding-top: 10px;
+        padding-left: 6px;
+        // paddingが効かない：解決
+        // margin-left: 10px;
+        // わたしについて、より若干左になっているのを揃えたい 色が反映されていない
+    }
+    .about_content {
+        display: block;
+        padding-left: 45px;
+        width: 30%;
+       
+    }
+    .about_text {
+        padding-top: 42px;
+        font-size: 15px;
+        line-height: 1.53;
+    }
+    .about_title {
+        display: block;
+    }
+    .about_head {
+        display: flex;
+    }
+    .about_clock {
+        width: 80px;
+        padding-left: 15px;
+        margin-top: -15px;
+    }
+    .about_me {
+        width: 25%;
+        min-width: 250px;
+        padding-left: 8%;
+        padding-right: 8%;
+    }
+    .about_me_sp {
+        display: none;
+    }
+    .about_text_sp {
+        display: none;
+    }
+    .view_more1_sp {
+        display: none;
+    }
+    .view_more1 {
+        color: $sky1-color;
+        margin-top: 35px;
+        display: flex;
+        align-items: center; /* 垂直中心 */
+        // justify-content: center; /* 水平中心 */
+    &::after {
+        border-top: 1px solid $sky1-color;
+        content: "";
+        width: 185px; /* 線の長さ */
+    }  
+    &::after {
+        margin-left: 12px; /* 文字の左隣 */
+    }
+    }
+    // 文章とプロフィール画像の高さが常に揃うようにはできる？文字がどんどん小さくなってしまうが
+    // 線の位置が少し上なのをなんとかしたい
+    
+    // .works_circle {
+    //     padding-left: 70%;
+    // }
+
+    @media screen and (max-width: 767px) {
+        .concept_text {
+            font-size: 13px;
+            line-height: 1.84;
+            margin-top: 52px;
+        }
+        .concept_scroll {
+            width: 18px;
+        }
+        #about {
+            margin-top: 80px;
+            h2 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+        .about_sp {
+            max-width: 250px;
+            margin: 0 auto;
+        }
+        .about_content {
+            width: 80%;
+            padding-left: 18px;
+        }
+        .about_me {
+            display: none;
+        }
+        .about_text {
+            display: none;
+        }
+        .view_more1 {
+            display: none;
+        }
+        .about_me_sp {
+            display: block;
+            width: 100px;
+            margin: 0 auto;
+            margin-bottom: 25px;
+            margin-top: -30px;
+        }
+        .about_text_sp {
+            font-feature-settings: "palt";
+            display: block;
+            font-size: 12px;
+            line-height: 1.5;
+
+        }
+        .view_more1_sp {
+            justify-content: flex-end;
+            font-size: 10px;
+            color: $sky1-color;
+            margin-top: 35px;
+            display: flex;
+            align-items: center; /* 垂直中心 */
+            // justify-content: center; /* 水平中心 */
+        &::after {
+            border-top: 0.5px solid $sky1-color;
+            content: "";
+            width: 120px; /* 線の長さ */
+        }  
+        &::after {
+            margin-left: 12px; /* 文字の左隣 */
+        }
+        }
+        .about_sky {
+            width: 65px;
+        }
+        .about_clock {
+            width: 50px;
+            padding-left: 10px;
+            margin-top: 0;
+        }
+    }
+
+    .works_top {
+    margin-top: 215px;
+    display: flex;
+    text-align: right;
+    justify-content: flex-end;
+    // margin: 0 0 0 auto;
+    }
+    .title_sub2 {
+        color: $sky2-color;
+        padding-top: 10px;
+        padding-right: 6px;
+        font-size: 20px;
+    }
+    .works_content {
+        display: block;
+        width: 30%;
+        margin-top: 130px;
+        padding-right: 45px;
+    }
+    .works_text {
+        font-size: 15px;
+        line-height: 1.66;
+        padding-top: 30px;
+    }
+    .works_title {
+        display: block;
+    }
+    .works_head {
+        display: flex;
+        justify-content: flex-end;
+    }
+    .works_clock {
+        position: relative;
+        width: 80px;
+        padding-right: 10px;
+        margin-top: -15px;
+    }
+    .works_circle {
+        position: absolute;
+        text-align: center;
+        top: 0;
+        left: calc(50% - 5px);
+        transform: translate(-50%, -100%);
+        div {
+            margin-bottom: 30px;
+        }
+    }
+   
+    .myworks {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 5%;
+        margin-top: 20px;
+    }
+    .myworks_content_site {
+        width: 30%;
+        aspect-ratio: 1;
+        // height: 300px;
+        background: #dcdde7;
+        margin-bottom: 47px;
+            }
+    .myworks_content_banner {
+        img {
+            width: 250px;
+        }
+        width: 30%;
+        aspect-ratio: 1;
+        // height: 300px;
+        background: #dcdde7;
+    }
+    .myworks_content_site,
+    .myworks_content_banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+    // 夜空の写真と作品の右端を揃えたい
+    // 資格の真ん中に作品の写真を配置したい
+
+    .view_more2 {
+        color: $sky2-color;
+        display: flex;
+        align-items: center; /* 垂直中心 */
+        // justify-content: center; /* 水平中心 */
+        padding-top: 30px;
+        margin: 0 0 0 auto;
+    &::after {
+        border-top: 1px solid $sky1-color;
+        content: "";
+        width: 185px; /* 線の長さ */
+    }  
+    &::after {
+        margin-left: 12px; /* 文字の左隣 */
+    }
+    }
+
+    @media screen and (max-width: 767px) {
+        .works_sky {
+            width: 63px;
+        }
+        .works_clock {
+            width: 50px;
+        }
+        .works_content {
+            width: 80%;
+            margin-top: 0;
+            padding-right: 18px;
+            h2 {
+                font-size: 20px;
+            }
+        }
+        .title_sub2 {
+            font-size: 15px;
+            padding-top: 6px;
+           }
+        .works_text {
+            font-size: 12px;
+            line-height: 1.5;
+            padding-top: 20px;
+        }
+        .myworks {
+            display: block;
+            margin-top: 70px;
+        }
+        .myworks_content_site {
+            width: 100%;
+            aspect-ratio: 1;
+            // height: 200px;
+            margin-bottom: 40px;
+        }
+        .myworks_content_banner {
+            display: none;
+        }
+        .view_more2 {
+            padding: 0;
+            font-size: 10px;
+            justify-content: flex-end;
+            &::after {
+                border-top: 0.5px solid $sky1-color;
+                content: "";
+                width: 120px; /* 線の長さ */
+            }  
+
+        }
+    }
+
+    #service {
+        margin-top: 150px;
+    }
+    .service_top {
+        display: flex;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        .title_sub3 {
+            color: $sky3-color;
+            font-size: 20px;
+            padding-top: 10px;
+            padding-left: 6px;
+            // padding反映されていない？：解決
+        }
+        .service_head {
+            display: flex;
+            padding-left: 45px;
+            padding-top: 130px;
+            width: 30%;
+        }
+        
+        .service_title {
+            display: block;
+        }
+        .service_clock {
+            position: relative;
+            width: 80px;
+            padding-left: 15px;
+            margin-top: -15px;
+        }
+        .service_circle {
+            position: absolute;
+            text-align: center;
+            top: 0;
+            left: calc(50% + 5px);
+            transform: translate(-50%, -100%);
+            div {
+                margin-bottom: 30px;
+            }
+        }
+        .service_content {
+            max-width: 690px;
+            h3 {
+                font-weight: normal;
+                font-size: 20px;
+                padding-top: 40px;
+                border-bottom: 1px #171c61 solid;
+                padding-bottom: 8px;
+                margin-bottom: 14px;
+            }
+            p {
+                font-size: 15px;
+                line-height: 1.5;
+            }
+            display: flex;
+            justify-content: space-between;
+            padding: 0 10%;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        .service_design {
+            width: 35%;
+            padding-bottom: 100px;
+            img {
+                width: 165px;
+            }
+        }
+        .service_cording {
+            width: 35%;
+            padding-bottom: 100px;
+            img {
+                width: 189px;
+            }
+        }
+        .service_writing {
+            width: 35%;
+            img {
+                width: 180px;
+            }
+        }
+        .service_others {
+            width: 35%;
+            img {
+                width: 162px;
+            }
+        }
+        @media screen and (max-width: 767px) {
+            .service_sky {
+                width: 63px;
+            }
+            .service_clock {
+                width: 50px;
+                margin: 0;
+                padding-left: 10px;
+            }
+            .service_top {
+                h2 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 15px;
+                }
+            }
+            .service_head {
+                width: 80%;
+                padding-left: 18px;
+                padding-top: 40px;
+            }
+            .service_content {
+                display: block;
+                padding-top: 75px;
+                max-width: 250px;
+                h3 {
+                    font-size: 15px;
+                    padding-top: 30px;
+                    border-bottom: 1px solid #171c61;
+                    padding-bottom: 8px;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-size: 12px;
+                    line-height: 1.83;
+                    font-feature-settings: "palt";
+                }
+            }
+            .service_design {
+                margin: 0 auto;
+                width: 100%;
+                padding-bottom: 60px;
+                div {
+                    padding-right: 22px;
+                    text-align: center;
+                }
+                img {
+                    width: 130px;
+                    // 画像を中央に寄せたい
+                }
+            }
+            .service_cording {
+                margin: 0 auto;
+                width: 100%;
+                padding-bottom: 60px;
+                div {
+                    text-align: center;
+                    padding-right: 18px;
+                }
+                img {
+                    width: 148px;
+                    // 画像を中央に寄せたい
+                }
+            }
+            .service_writing {
+                margin: 0 auto;
+                width: 100%;
+                padding-bottom: 60px;
+                div {
+                    text-align: center;
+                    padding-right: 20px;
+                }
+                img {
+                    width: 130px;
+                    // 画像を中央に寄せたい
+                }
+            }
+            .service_others {
+                margin: 0 auto;
+                width: 100%;
+                div {
+                    text-align: center;
+                    padding-right: 20px;
+                }
+                img {
+                    width: 125px;
+                    // 画像を中央に寄せたい
+                }
+            }
+        }
+
+        #contact {
+            margin-top: 250px;
+        }
+        .contact_content{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .contact_sky {
+            margin-top: 90px;
+            // text-align: right;
+        }
+        .contact_head {
+            display: block;
+            margin: 0 auto;
+            padding-left: 15%;
+            p {
+                color: $sky4-color;
+                padding-top: 10px;
+                font-size: 20px;
+            }
+            text-align: center;
+        }
+        .contact_clock {
+            position: relative;
+            padding-bottom: 40px;
+            width: 80px;
+            display: block;
+            margin: 0 auto;
+        }
+        .contact_circle {
+            position: absolute;
+            text-align: center;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            div {
+                margin-bottom: 30px;
+            }
+        }
+        .contact_text {
+            font-size: 15px;
+            line-height: 1.4;
+            padding-top: 82px;
+            margin-bottom: 95px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .contact_clock {
+                width: 50px;
+                padding-bottom: 20px;
+            }
+            .contact_head {
+                h2 {
+                    font-size: 20px;
+                }
+                p {
+                    font-size: 15px;
+                    padding-top: 10px;
+                }
+            }
+            .contact_sky {
+                width: 63px;
+                margin: 0;
+            }
+            .contact_text {
+                padding-top: 30px;
+                font-size: 12px;
+                line-height: 1.7;
+                margin-bottom: 40px;
+                font-feature-settings: "palt";
+            }
+            .contact_button {
+                width: 250px;
+                height: 50px;
+                font-size: 15px;
+                margin: 0 auto;
+            }
+            .circle3 {
+                width: 25px;
+                margin: 0 auto;
+            }
+            .circle2 {
+                width: 15px;
+                margin: 0 auto;
+            }
+            .circle1 {
+                width: 8px;
+                margin: 0 auto;
+            }
+            .works_circle {
+                div {
+                    margin-bottom: 12px;
+                }
+            }
+            .service_circle {
+                div {
+                    margin-bottom: 12px;
+                }
+            }
+            .contact_circle {
+                div {
+                    margin-bottom: 12px;
+                }
+            }
+        }
+        #footer {
+            margin-top: 120px;
+        }

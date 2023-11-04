@@ -1,0 +1,507 @@
+#profile_title {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 5%;
+    // 見出しと名前の左端がずっと揃ったまま小さくなるようにしたい
+}
+.profile_top {
+    display: flex;
+}
+.profile_text {
+    margin-top: 120px;
+    // margin-left: 183px;
+    h2 {
+        font-size: 50px;
+        font-weight: normal;
+    }
+    p {
+        font-size: 60px;
+        font-family: 'brush-script-std';
+        font-style: italic;
+        color: #b9bbd0;
+        padding-top: 10px;
+    }
+    // img {
+    //     width: 170px;
+    // }
+}
+.profile_clock {
+    margin-top: 85px;
+    margin-left: 40px;
+    width: 170px;
+}
+
+@media screen and (max-width: 767px) {
+    #profile_title {
+        padding: 0 5%;
+        max-width: 250px;
+        margin: 0;
+    }
+    .profile_top {
+        padding: 0;
+    }
+    .profile_text {
+        margin-top: 90px;
+        h2 {
+            font-size: 22px;
+        }
+        p {
+            font-size: 20px;
+        }
+    }
+    .profile_clock {
+        width: 80px;
+        margin-left: 15px;
+        margin-top: 70px;
+    }
+}
+
+#profile_content {
+    padding: 0 5%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.name {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 115px;
+}
+.name_head {
+    width: 60%;
+    h3 {
+        font-size: 30px;
+        font-weight: normal;
+    }
+    p {
+        position: relative;
+        font-size: 15px;
+        padding-top: 10px;
+        padding-bottom: 6px;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -800px;
+            display: block;
+            width: 1000px;
+            height: 1px;
+            background: #171c61;
+        }
+    }
+}
+.name_job {
+    font-size: 17px;
+    padding-top: 35px;
+}
+.name_age {
+    padding-top: 16px;
+    font-size: 16px;
+    line-height: 1.25;
+}
+.name_text {
+    padding-top: 25px;
+    font-size: 15px;
+    line-height: 1.33;
+}
+.name_me {
+    width: 400px;
+    padding-left: 15px;
+}
+.name_me_sp {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .name_me {
+        display: none;
+    }
+    .name_me_sp {
+        display: block;
+        width: 150px;
+        margin-bottom: 40px;
+    }
+    .name {
+        flex-direction: column;
+        margin-top: 75px;
+    }
+    .name_head {
+        width: 100%;
+        h3 {
+            font-size: 16px;
+        }
+        p {
+            font-size: 11px;
+            padding-top: 5px;
+            &::before {
+                left: -400px;
+                width: 500px;
+            }
+        }
+    }
+    .name_job {
+        padding-top: 23px;
+        font-size: 14px;
+    }
+    .name_age {
+        font-size: 12px;
+        line-height: 1.25;
+        padding-top: 12px;
+    }
+    .name_text {
+        padding-top: 20px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+#favorite {
+    padding-top: 95px;
+    position: relative;
+    // height: 1000px;：下のコンテンツとかぶってしまっていた原因
+    margin: 0 auto;
+    h3 {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-bottom: 6px;
+        margin-bottom: 110px;
+        font-weight: normal;
+        font-size: 30px;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: -800px;
+            display: block;
+            width: 1000px;
+            height: 1px;
+            background: #171c61;
+        }
+    }
+}
+
+.wave1 {
+    img {
+        width: 100vw;
+        height: auto;
+    }
+}
+.favorite_music {
+    padding: 0 5%;
+    background-color: #d1dae8;
+    margin-top: -2px;
+}
+.wave2 {
+    margin-top: -2px;
+    img {
+        width: 100vw;
+        height: auto;
+    }
+}
+.back_music {
+    position: absolute;
+    top: 30%;
+    // width: 100vw;
+    // height: auto;
+    // 画面の横幅いっぱいに伸ばしたい
+}
+
+.favorite_content {
+    display: flex;
+    justify-content: left;
+    max-width: 1000px;
+    margin: 0 auto;
+    
+}
+.favorite_text {
+    h4 {
+        font-weight: normal;
+        font-size: 25px;
+        margin: 0;
+        padding-bottom: 9px;
+    }
+    p {
+        font-size: 20px;
+        padding-bottom: 40px;
+    }
+    width: 50%;
+    padding-left: 140px;
+}
+.favorite_violin {
+    width: 300px;
+    z-index: 2;
+}
+.music_text {
+    font-size: 15px;
+    line-height: 1.8;
+}
+.favorite_content2 {
+    display: flex;
+    justify-content: left;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: flex-start;
+    padding-right: 5%;
+}
+.favorite_text2 {
+    h4 {
+        font-weight: normal;
+        font-size: 25px;
+        margin: 0;
+        padding-bottom: 9px;
+    }
+    p {
+        font-size: 20px;
+        padding-bottom: 45px;
+    }
+    width: 50%;
+    padding-right: 140px;
+}
+.favorite_picture {
+    background-color: #d1dae8;
+    padding-top: 220px;
+    width: 100%;
+    padding-left: 5%;
+}
+.picture_text {
+    font-size: 15px;
+    line-height: 1.8;
+}
+.favorite_works {
+    // width: 300px;
+    width: 30%;
+    background: #fffef5;
+    z-index: 100;
+}
+.back_picture {
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+    // うまく位置が調整できない
+}
+
+@media screen and (max-width: 767px) {
+    #favorite {
+        padding-top: 70px;
+        h3 {
+            font-size: 16px;
+            margin-bottom: 36px;
+        }
+    }
+    .favorite_content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .favorite_text {
+        padding-left: 0;
+        width: 100%;
+        h4 {
+            max-width: 150px;
+            margin: 0 auto;
+            font-size: 15px;
+            padding-top: 4px;
+            padding-bottom: 3px;
+        }
+        p {
+            font-size: 13px;
+            max-width: 150px;
+            margin: 0 auto;
+            padding-bottom: 24px;
+        }
+    }
+    .favorite_violin {
+        width: 150px;
+    }
+    .music_text {
+        font-size: 12px;
+        line-height: 1.83;
+    }
+    .back_music {
+        top: 13%;
+    }
+    .favorite_picture {
+        padding-top: 80px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .favorite_content2 {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 5%;
+    }
+    .favorite_text2 {
+        padding-right: 0;
+        padding-bottom: 60px;
+        width: 100%;
+        order: 2;
+        h4 {
+            max-width: 150px;
+            margin: 0 auto;
+            font-size: 15px;
+            padding-top: 4px;
+            padding-bottom: 3px;
+        }
+        p {
+            font-size: 13px;
+            max-width: 150px;
+            margin: 0 auto;
+            padding-bottom: 24px;
+        }
+    }
+    .favorite_works {
+        width: 150px;
+    }
+    .picture_text {
+        font-size: 12px;
+        line-height: 1.83;
+    }
+    .back_picture {
+        width: 150px;
+        bottom: 20%;
+        right: 5%;
+    }
+}
+
+#about_important {
+    max-width: 1000px;
+    margin-top: 75px;
+    h3 {
+        text-align: center;
+        font-weight: normal;
+        font-size: 30px;
+        position: relative;
+        padding-bottom: 6px;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: -525px;
+            display: block;
+            justify-content: flex-end;
+            width: 1130px;
+            height: 1px;
+            background: #171c61;
+        }
+    }
+    h4 {
+        font-size: 20px;
+        font-weight: normal;
+    }
+    p {
+        font-size: 14px;
+        line-height: 1.7;
+        font-feature-settings: "palt";
+    }
+}
+#about_important {
+   margin: 0 auto;
+   margin-top: 85px;
+   max-width: 860px;
+}
+.important_content {
+    margin-top: 105px;
+    display: flex;
+    justify-content: space-between;
+}
+.important_analysis {
+    width: 30%;
+    padding-right: 135px;
+    img {
+        width: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+.important_talk {
+    width: 30%;
+    padding-right: 135px;
+    img {
+        width: 120px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+.important_verval {
+    width: 30%;
+    img {
+        width: 110px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.about_message {
+    font-size: 14px;
+    line-height: 1.57;
+    text-align: center;
+    margin-top: 140px;
+    margin-bottom: 80px;
+}
+
+@media screen and (max-width: 767px) {
+    #about_important {
+        h3 {
+            font-size: 16px;
+            &::before {
+                width: 565px;
+                right: -280px;
+            }
+        }
+        h4 {
+            font-size: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px #171c61 solid;
+            margin-bottom: 6px;
+        }
+        p {
+            font-size: 12px;
+            line-height: 1.83;
+        }
+    }
+    .important_content {
+        flex-direction: column;
+        margin-top: 50px;
+        padding: 0 5%;
+    }
+    .important_analysis {
+        width: 100%;
+        padding-right: 0;
+        max-width: 250px;
+        margin: 0 auto;
+        img {
+            width: 90px;
+        }
+    }
+    .important_talk {
+        padding-top: 90px;
+        width: 100%;
+        padding-right: 0;
+        max-width: 250px;
+        margin: 0 auto;
+        img {
+            width: 90px;
+        }
+    }
+    .important_verval {
+        padding-top: 90px;
+        width: 100%;
+        padding-right: 0;
+        max-width: 250px;
+        margin: 0 auto;
+        img {
+            width: 80px;
+        }
+    }
+    .about_message {
+        padding: 0 5%;
+        margin-top: 135px;
+        margin-bottom: 75px;
+        font-size: 11px;
+        line-height: 2;
+        font-feature-settings: "palt";
+    }
+}
+#footer {
+    margin-top: 120px;
+}
