@@ -99,4 +99,26 @@
       }
     });
   });
+
+  // ヘッダー
+  $(function () {
+    var $header = $("#header");
+    $(window).on("load scroll", function () {
+      var value = $(this).scrollTop();
+      if (value > 0) {
+        $header.addClass("scroll");
+      } else {
+        $header.removeClass("scroll");
+      }
+    });
+  });
+
+  // ハンバーガーメニュー
+$(function () {
+
+  $('.sp_btn, .sp_nav li').on('click', function () {
+      $('.sp_btn').toggleClass('open');
+      $('.sp_nav').fadeToggle();
+  });
+});
  

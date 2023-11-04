@@ -233,6 +233,11 @@ dl.detail_text div {
   padding: 5px 10px;
   box-sizing: border-box;
   background: #171c61;
+  transition: 0.3s ease-out;
+}
+.btn_works:hover {
+  background: #5d6090;
+  border-radius: 10px;
 }
 
 .btn-inner_works {
@@ -316,6 +321,12 @@ dl.detail_text div {
     padding: 5px 10px;
     box-sizing: border-box;
     background: #171c61;
+    transition: 0.3s ease-out;
+  }
+  .btn_sp1:hover,
+  .btn_sp2:hover {
+    background: #5d6090;
+    border-radius: 10px;
   }
   .btn-inner {
     position: relative;

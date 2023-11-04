@@ -73,7 +73,7 @@ body {
     background: #171c61; /* 黒の背景 */
     z-index: 9999; /* コンテンツより前面に表示 */
     opacity: 0; /* 最初は透明 */
-    transition: opacity 1s; /* フェードのアニメーションを追加 */
+    transition: opacity 1.5s; /* フェードのアニメーションを追加 */
     pointer-events: none; /* イベントの対象外にする */
     visibility: hidden;
   }
@@ -84,8 +84,18 @@ body {
   .content {
     visibility: hidden; /* 初期状態は非表示 */
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 1.2s;
   }
+
+//   2回目以降非表示にするための処理
+// #loading .is-active {
+//     opacity: 0;
+//     visibility: hidden;
+// }
+// #loader .is-active {
+//     opacity: 1;
+//     visibility: visible;
+// }
 
 
 body {
@@ -116,7 +126,7 @@ h2 {
     width: 100vw;
     height: 70px;
     opacity: 1 !important;
-    transition: 0.3s;
+    transition: 0.4s;
    img {
         width: 70px;
     }
@@ -124,6 +134,7 @@ h2 {
         top: 30px;
     }
 }
+
 @media screen and (max-width: 1000px) {
     .header_logo_fv {
         width: 70px;
@@ -136,6 +147,16 @@ h2 {
     }
     .header_menu_pc {
         display: none;
+    }
+    .is-fixed {
+        height: 60px;
+        img {
+            width: 60px;
+            margin-top: 4px;
+        }
+        .sp_btn {
+            top: 8%;
+        }
     }
     .sp_btn {
         top: 5%;
@@ -207,7 +228,7 @@ ul li:last-child {
 .mv_foot4 {
     width: 60px;
     position: absolute;
-    top: 55%;
+    top: 58%;
     left: 24%;
     transform: rotate(12deg);
 }
@@ -349,27 +370,42 @@ ul li:last-child {
     .view_more1_sp {
         display: none;
     }
-    .view_more1 {
-        color: $sky1-color;
-        margin-top: 35px;
-        display: flex;
-        align-items: center; /* 垂直中心 */
-        // justify-content: center; /* 水平中心 */
-    &::after {
-        border-top: 1px solid $sky1-color;
-        content: "";
-        width: 185px; /* 線の長さ */
-    }  
-    &::after {
-        margin-left: 12px; /* 文字の左隣 */
-    }
-    }
-    // 文章とプロフィール画像の高さが常に揃うようにはできる？文字がどんどん小さくなってしまうが
-    // 線の位置が少し上なのをなんとかしたい
+    // .view_more1 {
+    //     color: $sky1-color;
+    //     margin-top: 35px;
+    //     display: flex;
+    //     align-items: center; /* 垂直中心 */
+    //     // justify-content: center; /* 水平中心 */
+    // &::after {
+    //     border-top: 1px solid $sky1-color;
+    //     content: "";
+    //     height: 1px;
+    //     width: 185px; /* 線の長さ */
+    //     margin-left: 12px;
+    // } 
+    // } 
     
-    // .works_circle {
-    //     padding-left: 70%;
-    // }
+   .view_more1 {
+    display: flex;
+    align-items: center;
+    padding-bottom: 4px;
+    position: relative;
+    margin-top: 35px;
+    &::after {
+        background-color: #171c61;
+        bottom: 0;
+        content: "";
+        height: 1px;
+        left: 30%;
+        top: 50%;
+        position: absolute;
+        transition: .5s all;
+        width: 0;
+    }
+    &:hover::after {
+        width: 185px;
+    }
+   }
 
     @media screen and (max-width: 767px) {
         .concept_text {
@@ -420,23 +456,32 @@ ul li:last-child {
             line-height: 1.5;
 
         }
+
+
         .view_more1_sp {
             justify-content: flex-end;
-            font-size: 10px;
+            position: relative;
+            font-size: 12px;
             color: $sky1-color;
             margin-top: 35px;
             display: flex;
             align-items: center; /* 垂直中心 */
             // justify-content: center; /* 水平中心 */
         &::after {
-            border-top: 0.5px solid $sky1-color;
+            position: absolute;
+            background: #171c61;
+            bottom: 0;
+            height: 1px;
             content: "";
-            width: 120px; /* 線の長さ */
+            left: 30%;
+            top: 50%;
+            width: 0; /* 線の長さ */
+            &:hover::after {
+                width: 120px;
+            }
         }  
-        &::after {
-            margin-left: 12px; /* 文字の左隣 */
-        }
-        }
+    }
+    
         .about_sky {
             width: 65px;
         }
@@ -529,25 +574,59 @@ ul li:last-child {
     box-sizing: border-box;
 }
 
-    // 夜空の写真と作品の右端を揃えたい
-    // 資格の真ん中に作品の写真を配置したい
+    // .view_more2 {
+    //     color: $sky2-color;
+    //     display: flex;
+    //     align-items: center; /* 垂直中心 */
+    //     // justify-content: center; /* 水平中心 */
+    //     padding-top: 30px;
+    //     margin: 0 0 0 auto;
+    // &::after {
+    //     border-top: 1px solid $sky1-color;
+    //     content: "";
+    //     width: 185px; /* 線の長さ */
+    // }  
+    // &::after {
+    //     margin-left: 12px; /* 文字の左隣 */
+    // }
+    // }
 
     .view_more2 {
-        color: $sky2-color;
         display: flex;
-        align-items: center; /* 垂直中心 */
-        // justify-content: center; /* 水平中心 */
+        align-items: center;
+        padding-bottom: 4px;
+        // position: relative;
         padding-top: 30px;
         margin: 0 0 0 auto;
-    &::after {
-        border-top: 1px solid $sky1-color;
-        content: "";
-        width: 185px; /* 線の長さ */
-    }  
-    &::after {
-        margin-left: 12px; /* 文字の左隣 */
-    }
-    }
+        &::after {
+            background-color: #171c61;
+            bottom: 0;
+            margin-left: 12px;
+            content: "";
+            height: 1px;
+            // left: 30%;
+            // top: 50%;
+            // position: absolute;
+            width: 185px;
+            visibility: hidden;
+        }
+        &:hover::after {
+            visibility: visible;
+            animation-duration: 0.5s;
+            animation-name: fade-in;
+        }
+       }
+       @keyframes fade-in {
+        0% {
+            visibility: hidden;
+            opacity: 0;
+        }
+        100% {
+            visibility: visible;
+            opacity: 1;
+        }
+       }
+    
 
     @media screen and (max-width: 767px) {
         .works_sky {
@@ -588,10 +667,10 @@ ul li:last-child {
         }
         .view_more2 {
             padding: 0;
-            font-size: 10px;
+            font-size: 12px;
             justify-content: flex-end;
             &::after {
-                border-top: 0.5px solid $sky1-color;
+                // border-top: 0.5px solid $sky1-color;
                 content: "";
                 width: 120px; /* 線の長さ */
             }  

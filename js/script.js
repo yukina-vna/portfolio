@@ -61,15 +61,72 @@ $(function () {
 });
 
 // ヘッダー カレント表示
-const headerNavLink = document.querySelectorAll('.js-header');
+// const headerNavLink = document.querySelectorAll('.js-header');
 
-headerNavLink.forEach((targetLink) => {
-  if (targetLink.href === location.href) {
-    targetLink.parentElement.classList.add('is-current');
-  }
-});
+// headerNavLink.forEach((targetLink) => {
+//   if (targetLink.href === location.href) {
+//     targetLink.parentElement.classList.add('is-current');
+//   }
+// });
 
-// ローディング
+// ローディング 2回目以降非表示にする操作ができていない
+// $(function () {
+//   var webStorage = function () {
+//     if (sessionStorage.getItem('access')) {
+//       /*
+//         2回目以降アクセス時の処理
+//       */
+//       $(".loading").addClass('is-active');
+//     } else {
+//       /*
+//         初回アクセス時の処理
+//       */
+//       sessionStorage.setItem('access', 'true'); // sessionStorageにデータを保存
+//       setTimeout(function () {
+//         // ローディングを数秒後に非表示にする
+//         $(".loader").addClass('is-active');
+//         $(".loading-animation").removeClass('is-active');
+//       }, 3000); // ローディングを表示する時間
+//     }
+//   }
+//   webStorage();
+// });
+
+// $(function () {
+// var webStorage = function () {
+// if (sessionStorage.getItem('access')) {
+//   // 2回目以降アクセス時の処理
+//   $(".loading").addClass('is-active');
+// } else {
+// // 初回アクセス時の処理
+// sessionStorage.setItem('access', 'true');
+// $(".loader").addClass('is-active');
+// $(window).on("load", function () {
+//   // ローディング画面を非表示にする
+//   $(".loading").delay(1700).fadeOut(650);
+
+//   // 2秒後に真っ暗な背景をフェードイン
+//   setTimeout(function () {
+//       $(".overlay").css("visibility", "visible");
+//       $(".overlay").css("opacity", "1"); // 不透明にすることでフェードイン
+//   }, 2000); // 2秒後にフェードイン
+
+//   // 3秒後に真っ暗な背景をフェードアウト
+//   setTimeout(function () {
+//       $(".overlay").css("opacity", "0"); // 透明にすることでフェードアウト
+//   }, 3000); // 3秒後にフェードアウト
+
+//   // 4秒後にコンテンツが表示される
+//   setTimeout(function () {
+//       $(".content").css("visibility", "visible");
+//       $(".content").css("opacity", "1"); // 不透明にすることでフェードイン
+//   }, 4000); // 4秒後にコンテンツを表示
+// });
+// }
+// }
+// });
+
+
 $(window).on("load", function () {
   // ローディング画面を非表示にする
   $(".loader").delay(1700).fadeOut(650);

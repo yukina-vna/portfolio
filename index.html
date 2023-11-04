@@ -18,13 +18,15 @@
 
 <body>
     <!-- ローディング -->
-    <div class="loader">
-        <div class="loader_sun"><img src="images/loading_sun@2x.png" alt=""></div>
-        <div class="loader_box"><img src="images/loading_box-100.jpg" alt="">
-            <p class="loader_text">loading...</p>
+    <div class="loading">
+        <div class="loader">
+            <div class="loader_sun"><img src="images/loading_sun@2x.png" alt=""></div>
+            <div class="loader_box"><img src="images/loading_box-100.jpg" alt="">
+                <p class="loader_text">loading...</p>
+            </div>
         </div>
+        <div class="overlay"></div>
     </div>
-    <div class="overlay"></div>
 
     <div class="content">
         <header id="top">
@@ -32,7 +34,7 @@
 
             <nav class="header_menu_pc">
                 <ul>
-                    <li><a href="#top">home</a></li>
+                    <li class="current"><a href="#top">home</a></li>
                     <li><a href="concept/index.html">concept</a></li>
                     <li><a href="./about/index.html">about me</a></li>
                     <li><a href="./works/index.html">works</a></li>
@@ -46,7 +48,7 @@
             </div>
             <nav class="sp_nav">
                 <ul>
-                    <li><a href="index.html">home</a></li>
+                    <li class="current"><a href="index.html">home</a></li>
                     <li><a href="concept/index.html">concept</a></li>
                     <li><a href="about/index.html">about me</a></li>
                     <li><a href="works/index.html">works</a></li>
@@ -226,7 +228,7 @@
         <div class="footer_sky_sp"><img src="images/footer_sp@2x.png" alt="footer"></div> -->
             <div class="footer_menu">
                 <ul>
-                    <li><a href="#top">home</a></li>
+                    <li class="current_footer"><a href="#top">home</a></li>
                     <li><a href="./concept/index.html">concept</a></li>
                     <li><a href="./about/index.html">about me</a></li>
                     <li><a href="./works/index.html">works</a></li>
@@ -240,16 +242,29 @@
         $(function () {
             var $header = $("#top");
             var scrollSize = 800;
-            $header.css('opacity', '0');
-            $(window).on("load scroll", function () {
-                var value = $(this).scrollTop();
-                if (value > scrollSize) {
-                    $header.addClass("is-fixed");
-                } else {
-                    $header.removeClass("is-fixed");
-                }
-            });
+            if (window.matchMedia('(max-width:767px)').matches) {
+                $header.css('opacity', '1');
+                $(window).on("load scroll", function () {
+                    var value = $(this).scrollTop();
+                    if (value > scrollSize) {
+                        $header.addClass("is-fixed");
+                    } else {
+                        $header.removeClass("is-fixed");
+                    }
+                });
+            } else if (window.matchMedia('(min-width:768px)').matches) {
+                $header.css('opacity', '0');
+                $(window).on("load scroll", function () {
+                    var value = $(this).scrollTop();
+                    if (value > scrollSize) {
+                        $header.addClass("is-fixed");
+                    } else {
+                        $header.removeClass("is-fixed");
+                    }
+                });
+            }
         });
+
     </script>
 
 
