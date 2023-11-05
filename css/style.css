@@ -11,25 +11,25 @@ body {
   z-index: 2000;
   top: 0;
   left: 0;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.loader_sun {
-  width: 100px;
-  animation: anim 2.3s;
+.loader.is-active {
+  display: flex;
 }
 
-@keyframes anim {
-  0% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(100px);
-  }
+.loader_sun {
+  width: 100px;
 }
+
+.loader_sun.is-hidden {
+  transform: translateY(100px);
+  transition: 2.5s;
+}
+
 .loader_box {
   position: relative;
   margin-top: 20px;
@@ -179,7 +179,13 @@ h2 {
   display: none;
 }
 
-.mv_foot1 {
+.mv_foot {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s, visibility 0.8s;
+}
+
+.mv_foot4 {
   width: 60px;
   position: absolute;
   top: 30%;
@@ -187,7 +193,7 @@ h2 {
   transform: rotate(-15deg);
 }
 
-.mv_foot2 {
+.mv_foot3 {
   width: 60px;
   position: absolute;
   top: 40%;
@@ -195,7 +201,7 @@ h2 {
   transform: rotate(10deg);
 }
 
-.mv_foot3 {
+.mv_foot2 {
   width: 60px;
   position: absolute;
   top: 46%;
@@ -203,7 +209,7 @@ h2 {
   transform: rotate(-12deg);
 }
 
-.mv_foot4 {
+.mv_foot1 {
   width: 60px;
   position: absolute;
   top: 58%;
@@ -220,17 +226,21 @@ h2 {
   line-height: 1.5;
 }
 
+.fadeUp {
+  transform: translateY(20px);
+}
+
 @media screen and (max-width: 1000px) {
-  .mv_foot1 {
-    width: 35px;
-  }
-  .mv_foot2 {
+  .mv_foot4 {
     width: 35px;
   }
   .mv_foot3 {
     width: 35px;
   }
-  .mv_foot4 {
+  .mv_foot2 {
+    width: 35px;
+  }
+  .mv_foot1 {
     width: 35px;
   }
   .mv_text {
@@ -252,21 +262,21 @@ h2 {
     width: 100%;
     height: auto;
   }
-  .mv_foot1 {
+  .mv_foot4 {
     width: 30px;
     top: 50%;
     left: 35%;
   }
-  .mv_foot2 {
+  .mv_foot3 {
     width: 30px;
     top: 57%;
   }
-  .mv_foot3 {
+  .mv_foot2 {
     width: 30px;
     top: 65%;
     left: 36%;
   }
-  .mv_foot4 {
+  .mv_foot1 {
     width: 30px;
     top: 75%;
     left: 27%;
@@ -281,6 +291,32 @@ h2 {
     width: 100%;
   }
 }
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#layout {
+  color: transparent;
+  height: 600px;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  z-index: 0;
+  position: absolute;
+  /*   background-image: url(   https://www.manufosela.es/shooting_stars/hori.png), url( https://www.manufosela.es/shooting_stars/stars_5.png); */
+  /*   background-repeat: repeat-x, repeat-x repeat-y; */
+  transform: translate3D(0em, 0em, 0);
+  animation: stars 21s ease;
+  transform-style: preserve-3d;
+}
+
+#concept {
+  position: relative;
+}
+
 .concept_text {
   font-size: 17px;
   line-height: 1.8;
@@ -290,13 +326,72 @@ h2 {
 }
 
 .concept_scroll {
-  padding-top: 70px;
-  width: 23px;
-  margin: 0 auto;
+  position: absolute;
+  bottom: -70%;
+  left: 50%;
+}
+.concept_scroll span {
+  position: absolute;
+  left: 10px;
+  bottom: 0;
+  color: #171c61;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  writing-mode: vertical-rl;
+}
+.concept_scroll::after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /*線の形状*/
+  width: 1px;
+  height: 35px;
+  background: #171c61;
+}
+.concept_scroll::before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  /*丸の形状*/
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f7d379;
+  /*丸の動き1.6秒かけて透過し、永遠にループ*/
+  animation: circlemove 1.6s ease-in-out infinite, cirlemovehide 1.6s ease-out infinite;
 }
 
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove {
+  0% {
+    bottom: 45px;
+  }
+  100% {
+    bottom: -5px;
+  }
+}
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .about_all {
-  margin-top: 160px;
+  margin-top: 240px;
   display: flex;
 }
 
@@ -368,7 +463,8 @@ h2 {
   bottom: 0;
   content: "";
   height: 1px;
-  left: 30%;
+  margin-left: 12px;
+  left: 20%;
   top: 50%;
   position: absolute;
   transition: 0.5s all;
@@ -383,9 +479,6 @@ h2 {
     font-size: 13px;
     line-height: 1.84;
     margin-top: 52px;
-  }
-  .concept_scroll {
-    width: 18px;
   }
   #about {
     margin-top: 80px;
@@ -430,8 +523,9 @@ h2 {
     justify-content: flex-end;
     position: relative;
     font-size: 12px;
+    padding-right: 120px;
     color: #18448e;
-    margin-top: 35px;
+    margin: 35px 0 0 auto;
     display: flex;
     align-items: center; /* 垂直中心 */
   }
@@ -441,12 +535,18 @@ h2 {
     bottom: 0;
     height: 1px;
     content: "";
-    left: 30%;
-    top: 50%;
+    left: 50%;
+    top: 62%;
     width: 0; /* 線の長さ */
+    margin-left: 12px;
+    transform: 0.3s;
+    transition: 0.5s all;
   }
-  .view_more1_sp::after:hover::after {
-    width: 120px;
+  .view_more1_sp:hover::after {
+    width: 110px;
+  }
+  .view_more1_sp .concept_scroll span {
+    font-size: 11px;
   }
   .about_sky {
     width: 65px;
@@ -511,6 +611,29 @@ h2 {
   margin-bottom: 30px;
 }
 
+/* fadeUp */
+.fadeUp {
+  animation-name: fadeUpAnime;
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+.fadeUpTrigger {
+  opacity: 0;
+}
+
 .myworks {
   display: flex;
   justify-content: space-between;
@@ -550,8 +673,9 @@ h2 {
   display: flex;
   align-items: center;
   padding-bottom: 4px;
-  padding-top: 30px;
-  margin: 0 0 0 auto;
+  position: relative;
+  margin: 30px 0 0 auto;
+  padding-right: 185px;
 }
 .view_more2::after {
   background-color: #171c61;
@@ -559,25 +683,26 @@ h2 {
   margin-left: 12px;
   content: "";
   height: 1px;
-  width: 185px;
-  visibility: hidden;
+  left: 30%;
+  top: 50%;
+  position: absolute;
+  width: 0;
+  transform: 0.3s;
+  transition: 0.5s all;
 }
 .view_more2:hover::after {
-  visibility: visible;
-  animation-duration: 0.5s;
-  animation-name: fade-in;
+  width: 65%;
 }
 
-@keyframes fade-in {
-  0% {
-    visibility: hidden;
-    opacity: 0;
-  }
-  100% {
-    visibility: visible;
-    opacity: 1;
-  }
+.works_btn {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-right: 5%;
+  padding-left: 5%;
 }
+
 @media screen and (max-width: 767px) {
   .works_sky {
     width: 63px;
@@ -615,13 +740,13 @@ h2 {
     display: none;
   }
   .view_more2 {
-    padding: 0;
+    margin-top: -25px;
+    padding-right: 120px;
     font-size: 12px;
     justify-content: flex-end;
   }
-  .view_more2::after {
-    content: "";
-    width: 120px; /* 線の長さ */
+  .view_more2:hover::after {
+    width: 110px;
   }
 }
 #service {

@@ -19,24 +19,31 @@ body {
     z-index: 2000;
     top: 0;
     left: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+  .loader.is-active {
+    display: flex;
+  }
   .loader_sun {
     width: 100px;
-    animation: anim 2.3s;
+    // animation: anim 2.3s;
+  }
+  .loader_sun.is-hidden {
+    transform: translateY(100px);
+    transition: 2.5s;
   }
   
-  @keyframes anim {
-    0% {
-      transform: translateY(0px);
-    }
-    100% {
-      transform: translateY(100px);
-    }
-  }
+//   @keyframes anim {
+//     0% {
+//       transform: translateY(0px);
+//     }
+//     100% {
+//       transform: translateY(100px);
+//     }
+//   }
   
   .loader_box {
     position: relative;
@@ -204,28 +211,35 @@ ul li:last-child {
     display: none;
 }
 
-.mv_foot1 {
+// 足跡、コピーのフェードイン
+.mv_foot {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s, visibility 0.8s;
+}
+
+.mv_foot4 {
     width: 60px;
     position: absolute;
     top: 30%;
     left: 29%;
     transform: rotate(-15deg);
 }
-.mv_foot2 {
+.mv_foot3 {
     width: 60px;
     position: absolute;
     top: 40%;
     left: 23%;
     transform: rotate(10deg);
 }
-.mv_foot3 {
+.mv_foot2 {
     width: 60px;
     position: absolute;
     top: 46%;
     left: 30%;
     transform: rotate(-12deg);
 }
-.mv_foot4 {
+.mv_foot1 {
     width: 60px;
     position: absolute;
     top: 58%;
@@ -240,18 +254,21 @@ ul li:last-child {
     right: 10%;
     line-height: 1.5;
 }
+.fadeUp {
+    transform: translateY(20px);
+}
 
 @media screen and (max-width: 1000px) {
-    .mv_foot1 {
-        width: 35px;
-    }
-    .mv_foot2 {
+    .mv_foot4 {
         width: 35px;
     }
     .mv_foot3 {
         width: 35px;
     }
-    .mv_foot4 {
+    .mv_foot2 {
+        width: 35px;
+    }
+    .mv_foot1 {
         width: 35px;
     }
     .mv_text {
@@ -273,21 +290,21 @@ ul li:last-child {
             height: auto;
         }
     }
-    .mv_foot1 {
+    .mv_foot4 {
         width: 30px;
         top: 50%;
         left: 35%;
     }
-    .mv_foot2 {
+    .mv_foot3 {
         width: 30px;
         top: 57%;
     }
-    .mv_foot3 {
+    .mv_foot2 {
         width: 30px;
         top: 65%;
         left: 36%;
     }
-    .mv_foot4 {
+    .mv_foot1 {
         width: 30px;
         top: 75%;
         left: 27%;
@@ -303,6 +320,31 @@ ul li:last-child {
     }
 }
 
+// 流れ星
+body {
+    padding:0; margin:0;
+  }
+  #layout { 
+    color:transparent;
+    height:600px;
+    width:100%;
+    height:100%; 
+  }
+  .stars {
+    z-index: 0;
+    position: absolute;
+    // background-image: url(../images/main.png);
+    // background-color: #000;
+  /*   background-image: url(   https://www.manufosela.es/shooting_stars/hori.png), url( https://www.manufosela.es/shooting_stars/stars_5.png); */
+  /*   background-repeat: repeat-x, repeat-x repeat-y; */
+    transform:translate3D(0em, 0em, 0);
+    animation: stars 21s ease; 
+    transform-style: preserve-3d;
+  }
+// 流れ星ここまで
+#concept {
+    position: relative;
+}
 
 .concept_text {
     font-size: 17px;
@@ -311,14 +353,71 @@ ul li:last-child {
     margin: 0 auto;
     margin-top: 72px;
 }
+
+// スクロールダウン
 .concept_scroll {
-    padding-top: 70px;
-    width: 23px;
-    margin: 0 auto;
+    position: absolute;
+    bottom: -70%;
+    left: 50%;
+    span {
+        position: absolute;
+        left: 10px;
+        bottom: 0;
+        color: #171c61;
+        font-size: 13px;
+        letter-spacing: 0.05em;
+	    /*縦書き設定*/
+	    -ms-writing-mode: tb-rl;
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+    }
+    &::after {
+        content:"";
+        /*描画位置*/
+        position: absolute;
+        bottom:0;
+        left:0;
+        /*線の形状*/
+        width:1px;
+        height: 35px;
+        background:#171c61;
+    }
+    &::before {
+        content: "";
+         /*描画位置*/
+        position: absolute;
+        bottom:0;
+        left:-4px;
+        /*丸の形状*/
+	    width:10px;
+	    height:10px;
+	    border-radius: 50%;
+	    background:#f7d379;
+        /*丸の動き1.6秒かけて透過し、永遠にループ*/
+	    animation:
+		circlemove 1.6s ease-in-out infinite,
+		cirlemovehide 1.6s ease-out infinite;
+        }
+    }
+
+    /*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove{
+    0%{bottom:45px;}
+   100%{bottom:-5px;}
 }
 
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide{
+    0%{opacity:0}
+   50%{opacity:1;}
+  80%{opacity:0.9;}
+  100%{opacity:0;}
+}
+
+// スクロールダウンここまで
+
 .about_all {
-    margin-top: 160px;
+    margin-top: 240px;
     display: flex;
     }
     h2 {
@@ -396,7 +495,8 @@ ul li:last-child {
         bottom: 0;
         content: "";
         height: 1px;
-        left: 30%;
+        margin-left: 12px;
+        left: 20%;
         top: 50%;
         position: absolute;
         transition: .5s all;
@@ -413,9 +513,9 @@ ul li:last-child {
             line-height: 1.84;
             margin-top: 52px;
         }
-        .concept_scroll {
-            width: 18px;
-        }
+        // .concept_scroll {
+        //     width: 18px;
+        // }
         #about {
             margin-top: 80px;
             h2 {
@@ -457,13 +557,13 @@ ul li:last-child {
 
         }
 
-
         .view_more1_sp {
             justify-content: flex-end;
             position: relative;
             font-size: 12px;
+            padding-right: 120px;
             color: $sky1-color;
-            margin-top: 35px;
+            margin: 35px 0 0 auto;
             display: flex;
             align-items: center; /* 垂直中心 */
             // justify-content: center; /* 水平中心 */
@@ -473,14 +573,23 @@ ul li:last-child {
             bottom: 0;
             height: 1px;
             content: "";
-            left: 30%;
-            top: 50%;
+            left: 50%;
+            top: 62%;
             width: 0; /* 線の長さ */
-            &:hover::after {
-                width: 120px;
-            }
+            margin-left: 12px;
+            transform: 0.3s;
+            transition: .5s all;
         }  
+        &:hover::after {
+            width: 110px;
+        }
+        .concept_scroll {
+            span {
+                font-size: 11px;
+            }
+        }
     }
+
     
         .about_sky {
             width: 65px;
@@ -539,6 +648,36 @@ ul li:last-child {
             margin-bottom: 30px;
         }
     }
+
+    // circleのアニメーション
+    /* fadeUp */
+
+.fadeUp{
+    animation-name:fadeUpAnime;
+    animation-duration:1.2s;
+    animation-fill-mode:forwards;
+    opacity:0;
+    }
+    
+    @keyframes fadeUpAnime{
+      from {
+        opacity: 0;
+      transform: translateY(100px);
+      }
+    
+      to {
+        opacity: 1;
+      transform: translateY(0);
+      }
+    }
+    
+    
+    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+     
+    .fadeUpTrigger{
+        opacity: 0;
+    }
+    // アニメーションここまで
    
     .myworks {
         display: flex;
@@ -573,60 +712,39 @@ ul li:last-child {
     padding: 15px;
     box-sizing: border-box;
 }
-
-    // .view_more2 {
-    //     color: $sky2-color;
-    //     display: flex;
-    //     align-items: center; /* 垂直中心 */
-    //     // justify-content: center; /* 水平中心 */
-    //     padding-top: 30px;
-    //     margin: 0 0 0 auto;
-    // &::after {
-    //     border-top: 1px solid $sky1-color;
-    //     content: "";
-    //     width: 185px; /* 線の長さ */
-    // }  
-    // &::after {
-    //     margin-left: 12px; /* 文字の左隣 */
-    // }
-    // }
-
     .view_more2 {
         display: flex;
         align-items: center;
         padding-bottom: 4px;
-        // position: relative;
-        padding-top: 30px;
-        margin: 0 0 0 auto;
+        position: relative;
+        margin: 30px 0 0 auto;
+        padding-right: 185px;
         &::after {
             background-color: #171c61;
             bottom: 0;
             margin-left: 12px;
             content: "";
             height: 1px;
-            // left: 30%;
-            // top: 50%;
-            // position: absolute;
-            width: 185px;
-            visibility: hidden;
+            left: 30%;
+            top: 50%;
+            position: absolute;
+            width: 0;
+            transform: 0.3s;
+            transition: .5s all;
         }
         &:hover::after {
-            visibility: visible;
-            animation-duration: 0.5s;
-            animation-name: fade-in;
+            width: 65%;
         }
-       }
-       @keyframes fade-in {
-        0% {
-            visibility: hidden;
-            opacity: 0;
-        }
-        100% {
-            visibility: visible;
-            opacity: 1;
-        }
-       }
-    
+    }
+
+    .works_btn {
+        display: flex;
+        justify-content: flex-end;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-right: 5%;
+        padding-left: 5%;
+    }
 
     @media screen and (max-width: 767px) {
         .works_sky {
@@ -666,14 +784,13 @@ ul li:last-child {
             display: none;
         }
         .view_more2 {
-            padding: 0;
+            margin-top: -25px;
+            padding-right: 120px;
             font-size: 12px;
             justify-content: flex-end;
-            &::after {
-                // border-top: 0.5px solid $sky1-color;
-                content: "";
-                width: 120px; /* 線の長さ */
-            }  
+            &:hover::after {
+                width: 110px;
+            }
 
         }
     }

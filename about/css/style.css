@@ -370,6 +370,7 @@
 #about_important {
   max-width: 1000px;
   margin-top: 75px;
+  overflow-x: hidden;
 }
 #about_important h3 {
   text-align: center;

@@ -90,6 +90,10 @@
   padding-bottom: 12px;
 }
 
+.works_square img {
+  width: 60%;
+}
+
 .works_img {
   width: 400px;
   aspect-ratio: 1.3;

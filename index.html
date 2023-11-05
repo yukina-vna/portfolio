@@ -8,7 +8,7 @@
     <meta name="description" content="細貝柚希奈のポートフォリオサイトです。">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="android-chrome-256x256.png">
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
@@ -29,6 +29,11 @@
     </div>
 
     <div class="content">
+        <!-- 以下fvの流れ星 -->
+        <div id="layout" class="stars">
+            <div>SHOOTING STARS...</div>
+            <div id="ShootingStarParams"></div>
+        </div>
         <header id="top">
             <h1 class="header_logo_fv"><a href="#top"><img src="images/logo.svg" alt="Nacht Design"></a></h1>
 
@@ -52,7 +57,7 @@
                     <li><a href="concept/index.html">concept</a></li>
                     <li><a href="about/index.html">about me</a></li>
                     <li><a href="works/index.html">works</a></li>
-                    <li><a href="contact/index.html"></a>contact</li>
+                    <li><a href="contact/index.html">contact</a></li>
                 </ul>
             </nav>
         </header>
@@ -61,13 +66,11 @@
 
             <h2 class="mv_main"><img src="images/main.png" alt="メインビジュアル"></h2>
             <div class="mv_main_sp"><img src="images/main_sp@2x.png" alt="メインビジュアル"></div>
-
-            <div class="mv_foot1"><img src="images/足跡1.png" alt="足跡1"></div>
-            <div class="mv_foot2"><img src="images/足跡2.png" alt="足跡1"></div>
-            <div class="mv_foot3"><img src="images/足跡1.png" alt="足跡1"></div>
-            <div class="mv_foot4"><img src="images/足跡2.png" alt="足跡1"></div>
-
-            <div class="mv_text">心に響く、<br>かけがえのないデザインを。</div>
+            <div class="mv_foot mv_foot1 fadeUp"><img src="images/足跡2.png" alt="足跡1"></div>
+            <div class="mv_foot mv_foot2 fadeUp"><img src="images/足跡1.png" alt="足跡1"></div>
+            <div class="mv_foot mv_foot3 fadeUp"><img src="images/足跡2.png" alt="足跡1"></div>
+            <div class="mv_foot mv_foot4 fadeUp"><img src="images/足跡1.png" alt="足跡1"></div>
+            <div class="mv_foot mv_text fadeUp">心に響く、<br>かけがえのないデザインを。</div>
         </section>
 
         <div id="concept">
@@ -76,7 +79,7 @@
                 想いを届けていくお手伝いをしたいと考えています。
             </h2>
 
-            <div class="concept_scroll"><img src="images/scroll.png" alt="scroll"></div>
+            <div class="concept_scroll"><span>scroll</span></div>
         </div>
 
 
@@ -118,9 +121,9 @@
                     <div class="works_head">
                         <div class="works_clock">
                             <div class="works_circle">
-                                <div class="circle1"><img src="images/works_circle1.png" alt=""></div>
-                                <div class="circle2"><img src="images/works_circle2.png" alt=""></div>
-                                <div class="circle3"><img src="images/works_circle_3.png" alt=""></div>
+                                <div class="circle1 fadeUpTrigger"><img src="images/works_circle1.png" alt=""></div>
+                                <div class="circle2 fadeUpTrigger"><img src="images/works_circle2.png" alt=""></div>
+                                <div class="circle3 fadeUpTrigger"><img src="images/works_circle_3.png" alt=""></div>
                             </div>
                             <img src="images/clock_2.svg" alt="紺桔梗の時計">
                         </div>
@@ -135,12 +138,14 @@
                 <div class="works_sky"><img src="images/sky_2.png" alt="紺桔梗の夜空"></div>
             </div>
             <div class="myworks">
-                <div class="myworks_content_site"><img src="images/works1.png" alt=""></div>
-                <div class="myworks_content_site"><img src="images/works2.png" alt=""></div>
-                <div class="myworks_content_site"><img src="images/works3.png" alt=""></div>
-                <div class="myworks_content_banner"><img src="images/works4.png" alt=""></div>
-                <div class="myworks_content_banner"><img src="images/works5.png" alt=""></div>
-                <div class="myworks_content_banner"><img src="images/works6.png" alt=""></div>
+                <div class="myworks_content_site"><img src="images/works_site1@2x.png" alt=""></div>
+                <div class="myworks_content_site"><img src="images/works_site2@2x.png" alt=""></div>
+                <div class="myworks_content_site"><img src="images/works_site3@2x.png" alt=""></div>
+                <div class="myworks_content_banner"><img src="images/works_banner1@2x.png" alt=""></div>
+                <div class="myworks_content_banner"><img src="images/works_banner2@2x.png" alt=""></div>
+                <div class="myworks_content_banner"><img src="images/works_banner5@2x.png" alt=""></div>
+            </div>
+            <div class="works_btn">
                 <div class="view_more2">
                     <a href="./works/index.html">view more</a>
                 </div>
@@ -157,9 +162,9 @@
                     </div>
                     <div class="service_clock">
                         <div class="service_circle">
-                            <div class="circle1"><img src="images/service_circle1.png" alt=""></div>
-                            <div class="circle2"><img src="images/service_circle2.png" alt=""></div>
-                            <div class="circle3"><img src="images/service_circle.png" alt=""></div>
+                            <div class="circle1 fadeUpTrigger"><img src="images/service_circle1.png" alt=""></div>
+                            <div class="circle2 fadeUpTrigger"><img src="images/service_circle2.png" alt=""></div>
+                            <div class="circle3 fadeUpTrigger"><img src="images/service_circle.png" alt=""></div>
                         </div>
                         <img src="images/clock_3.svg" alt="ミッドナイトブルーの時計">
                     </div>
@@ -202,9 +207,9 @@
                 <div class="contact_head">
                     <div class="contact_clock">
                         <div class="contact_circle">
-                            <div><img class="circle1" src="images/contact_circle1.png" alt=""></div>
-                            <div><img class="circle2" src="images/contact_circle2.png" alt=""></div>
-                            <div><img class="circle3" src="images/contact_circle3.png" alt=""></div>
+                            <div><img class="circle1 fadeUpTrigger" src="images/contact_circle1.png" alt=""></div>
+                            <div><img class="circle2 fadeUpTrigger" src="images/contact_circle2.png" alt=""></div>
+                            <div><img class="circle3 fadeUpTrigger" src="images/contact_circle3.png" alt=""></div>
                         </div>
                         <img src="images/clock_4.svg" alt="水縹の時計">
                     </div>
