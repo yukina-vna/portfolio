@@ -182,7 +182,7 @@ h2 {
 .mv_foot {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 1s, visibility 0.8s;
+  transition: opacity 1.5s, visibility 1.8s;
 }
 
 .mv_foot4 {
@@ -226,8 +226,8 @@ h2 {
   line-height: 1.5;
 }
 
-.fadeUp {
-  transform: translateY(20px);
+.fadeUp_fv {
+  transform: translateY(5px);
 }
 
 @media screen and (max-width: 1000px) {

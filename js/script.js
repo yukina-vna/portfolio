@@ -1,3 +1,4 @@
+// フォント
 (function (d) {
     var config = {
             kitId: "vjt1xyl",
@@ -99,6 +100,7 @@ $(function () {
     });
 });
 
+// ローディング
 $(function () {
     var webStorage = function () {
         if (sessionStorage.getItem("access")) {
@@ -172,6 +174,7 @@ $(function () {
 //     webStorage();
 // });
 
+// FVのアニメーション
 $(document).ready(function () {
     // ページ読み込み時に実行
     setTimeout(function () {
@@ -181,7 +184,7 @@ $(document).ready(function () {
             if (index < elements.length) {
                 // 要素がまだ残っている場合
                 var element = elements.eq(index);
-                element.addClass("fadeUp");
+                element.addClass("fadeUp_fv");
                 element.css({
                     opacity: "1",
                     visibility: "visible",
@@ -190,7 +193,7 @@ $(document).ready(function () {
                 // 次の要素へ
                 setTimeout(function () {
                     fadeInElement(index + 1);
-                }, 500); // 次の要素を0.5秒後にフェードイン
+                }, 800); // 次の要素を0.5秒後にフェードイン
             }
         }
 
@@ -201,22 +204,6 @@ $(document).ready(function () {
 
 // 流れ星
 (function () {
-    /**
-     author: @manufosela
-     2013/08/27    copyleft 2013
-
-     ShootingStar class Main Methods:
-     launch: launch shooting stars every N seconds received by              param. 10 seconds by default.
-      launchStar: launch a shooting star. Received options                  object by param with:
-               - dir (direction between 0 and 1)
-               - life (between 100 and 400)
-               - beamSize (between 400 and 700)
-               - velocity (between 2 and 10)
-               
-    It is necessary to use jQuery (this code is before ES6)
-    This code use https://codeorigin.jquery.com/jquery-1.10.2.min.js
-  **/
-
     ShootingStar = function (id) {
         this.n = 0;
         this.m = 0;
