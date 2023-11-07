@@ -101,6 +101,40 @@
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
+
+    position: relative;
+    overflow: hidden;
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        transition: 0.3s cubic-bezier(0.45, 0, 0.55, 1);
+        opacity: 0;
+    }
+    &::before {
+        background: rgba(23,28,97,0.6);
+        width: 100%;
+        height: 100%;
+    }
+    &::after {
+        color: #fffddf;
+        content: "view more";
+        font-size: 18px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        right: 0;
+    }
+    &:hover::before,
+    &:hover::after {
+        opacity: 1;
+    }
 }
 @media screen and (max-width: 930px) {
     .works_img {
@@ -203,7 +237,6 @@ dl.detail_text div {
         padding-top: 48px;
     }
 }
-
 .detail_message {
     max-width: 665px;
     margin: 0 auto;
@@ -211,25 +244,35 @@ dl.detail_text div {
     font-size: 15px;
     line-height: 2;
 }
-
-.detail_back {
-    color: #171c61;
-    padding-top: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+.back_btn {
     max-width: 800px;
     margin: 0 auto;
-
+    padding: 0 5%;
+}
+.detail_back {
+    padding-right: 185px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
     &::after {
-        border-top: 1px solid #171c61;
+        background-color: #171c61;
+        bottom: 0;
         content: "";
-        width: 185px; /* 線の長さ */
-    }  
-    &::after {
-        margin-left: 12px; /* 文字の左隣 */
+        height: 1px;
+        left: 78%;
+        top: 45%;
+        position: absolute;
+        width: 0;
+        transform: 0.3s;
+        transition: .5s all;
+    }
+    &:hover::after {
+        width: 175px;
     }
 }
+
+
 .btn_sp {
     display: none;
 }

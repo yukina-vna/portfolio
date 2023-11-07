@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
+    <script src="js/shooting_star.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
@@ -29,11 +30,13 @@
     </div>
 
     <div class="content">
-        <!-- 以下fvの流れ星 -->
-        <div id="layout" class="stars">
-            <div>SHOOTING STARS...</div>
-            <div id="ShootingStarParams"></div>
-        </div>
+        <!-- 以下fvの流れ星
+        <div id="shootingStarSection">
+            <div id="layout" class="stars">
+                <div>SHOOTING STARS...</div>
+                <div id="ShootingStarParams"></div>
+            </div>
+        </div> -->
         <header id="top">
             <h1 class="header_logo_fv"><a href="#top"><img src="images/logo.svg" alt="Nacht Design"></a></h1>
 
@@ -63,6 +66,12 @@
         </header>
 
         <section id="mv">
+            <!-- 以下fvの流れ星 -->
+
+            <div id="layout" class="stars">
+                <div>SHOOTING STARS...</div>
+                <div id="ShootingStarParams"></div>
+            </div>
 
             <h2 class="mv_main"><img src="images/main.png" alt="メインビジュアル"></h2>
             <div class="mv_main_sp"><img src="images/main_sp@2x.png" alt="メインビジュアル"></div>
@@ -258,7 +267,7 @@
                     }
                 });
             } else if (window.matchMedia('(min-width:768px)').matches) {
-                $header.css('opacity', '0');
+                $header.css('opacity', '1');
                 $(window).on("load scroll", function () {
                     var value = $(this).scrollTop();
                     if (value > scrollSize) {
