@@ -115,6 +115,7 @@
   left: 0;
   transition: 0.3s cubic-bezier(0.45, 0, 0.55, 1);
   opacity: 0;
+  pointer-events: none;
 }
 .works_img::before {
   background: rgba(23, 28, 97, 0.6);
@@ -232,6 +233,7 @@ dl.detail_text div {
   max-width: 665px;
   margin: 0 auto;
   padding-top: 45px;
+  padding-bottom: 50px;
   font-size: 15px;
   line-height: 2;
 }
@@ -339,13 +341,22 @@ dl.detail_text div {
     line-height: 1.83;
     padding-left: 5%;
     padding-right: 5%;
+    padding-bottom: 130px;
   }
   .detail_back {
-    font-size: 10px;
-    padding-right: 5%;
+    padding-right: 38%;
+    font-size: 11px;
   }
   .detail_back::after {
-    width: 150px;
+    left: 65%;
+    top: 50%;
+    position: absolute;
+    width: 0;
+    transform: 0.3s;
+    transition: 0.5s all;
+  }
+  .detail_back:hover::after {
+    width: 35%;
   }
   .btn_works {
     display: none;
