@@ -172,7 +172,7 @@ function mvFade() {
             // 次の要素へ
             setTimeout(function () {
                 fadeInElement(index + 1);
-            }, 800); // 次の要素を0.5秒後にフェードイン
+            }, 700); // 次の要素を0.5秒後にフェードイン
         }
     }
 

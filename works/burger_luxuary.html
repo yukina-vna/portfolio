@@ -4,20 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio|works</title>
-    <meta name="description" content="ポートフォリオのworksページです。">
+    <title>Works|work1</title>
+    <meta name="description" content="制作実績詳細ページです。">
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
     <link rel="icon" type="image/png" href="../android-chrome-192x192.png">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="../js/script.js" defer></script>
+    <script src="js/modal.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
 </head>
 
 <body>
-
     <div id="header">
         <img class="header_bg" src="../images/header.png" alt="header">
         <div class="header_inner">
@@ -56,57 +54,51 @@
             </div>
             <div class="works_clock"><img src="images/works_clock.svg" alt="紺桔梗の時計"></div>
         </div>
-        <div class="works_desc">デザインをクリックすると詳細ページに移動します。</div>
-        <div class="works_desc_sp">デザインをタップすると詳細ページに移動します。</div>
     </section>
 
-    <div class="works_content">
-        <div class="works_site">
-            <p>web site | 2023.08 <br>美容院「LIFE」LP</p>
-            <div class="works_img"><a href="../works/LIFE.html"><img src="images/works_site1@2x.png" alt=""></a></div>
-        </div>
-        <div class="works_site">
-            <p>web site | 2023.08 <br>デザインカフェ HP</p>
-            <div class="works_img"><a href="../works/cafe.html"><img src="images/works_site2@2x.png" alt=""></a></div>
-        </div>
-        <div class="works_banner">
-            <p>web banner | 2023.08 <br>新バーガー告知バナー</p>
-            <div class="works_img"><a href="../works/burger_pop.html"><img src="images/works_banner1@2x.png" alt=""></a>
-            </div>
-        </div>
-        <div class="works_banner">
-            <p>web banner | 2023.08 <br>新バーガー告知バナー</p>
-            <div class="works_img works_square"><a href="../works/burger_luxuary.html"><img
-                        src="images/works_banner2@2x.png" alt=""></a></div>
-        </div>
-        <div class="works_site">
-            <p>web site | 2023.07 <br>コワーキングスペース「WORKERS」HP</p>
-            <div class="works_img"><a href="../works/workers.html"><img src="images/works_site3@2x.png" alt=""></a>
-            </div>
-        </div>
-        <div class="works_banner">
-            <p>web banner | 2023.07 <br>トラベルメディア「TRRRRIP」バナー</p>
-            <div class="works_img works_square"><a href="../works/TRRRRIP.html"><img src="images/works_banner3@2x.png"
-                        alt=""></a></div>
-        </div>
-        <div class="works_banner">
-            <p>web banner | 2023.07 <br>デザスタmobile バナー</p>
-            <div class="works_img"><a href="../works/mobile.html"><img src="images/banner_phone.jpg" alt=""></a></div>
-        </div>
-        <div class="works_banner">
-            <p>web banner | 2023.07 <br>プライミング効果 SNS用図解</p>
-            <div class="works_img"><a href="../works/priming.html"><img src="images/priming_all.jpg" alt=""></a></div>
-        </div>
+    <div class="works_detail">
+        <div class="detail_title">新バーガー告知バナー</div>
+        <div class="detail_date">web banner | 2023.08</div>
+        <div class="detail_works banner_size"><img src="images/works_banner2@2x.png" alt="デザインカフェのモックアップ"></div>
     </div>
 
-    <div class="content_detail_pagination cdp" actpage="1">
-        <a href="#!-1" class="cdp_i">prev</a>
-        <a href="#!1" class="cdp_i">1</a>
-        <a href="../works/pages2.html" class="cdp_i">2</a>
-        <!-- <a href="#!3" class="cdp_i">3</a>
-        <a href="#!4" class="cdp_i">4</a>
-        <a href="#!5" class="cdp_i">5</a> -->
-        <a href="../works/pages2.html" class="cdp_i">next</a>
+
+    <dl class="detail_text">
+        <div>
+            <dt>概要</dt>
+            <dd>新ハンバーガーの購買促進を目的に作成したSNS用の仮想バナー</dd>
+        </div>
+
+        <div>
+            <dt>ターゲット</dt>
+            <dd>幅広い年代の男女。特に20代後半から30代。食べ物に対するこだわりがある人。</dd>
+        </div>
+
+        <div>
+            <dt>ねらい</dt>
+            <dd>高級感を与え、素材にこだわった本格派バーガーだということを感じてもらう。直感的に「美味しそう」と感じてもらう。</dd>
+        </div>
+
+        <div>
+            <dt>制作範囲</dt>
+            <dd>デザイン</dd>
+        </div>
+
+        <div>
+            <dt>使用ソフト</dt>
+            <dd>Adobe Photoshop / Illustrator</dd>
+        </div>
+
+        <div>
+            <dt>制作期間</dt>
+            <dd>1週間</dd>
+        </div>
+    </dl>
+    <div class="detail_message">高級感を出すため背景は落ち着いたトーンに抑え、余白を広めに取ることを意識しました。
+        背景に素材を配置し、遠近感のある写真を使用することで素材へのこだわりを表現しました。
+    </div>
+    <div class="back_btn">
+        <div class="detail_back"><a href="../works/index.html">back</a></div>
     </div>
 
     <div class="bottom_circle">
@@ -121,7 +113,7 @@
                 <li><a href="../index.html">home</a></li>
                 <li><a href="../concept/index.html">concept</a></li>
                 <li><a href="../about/index.html">about me</a></li>
-                <li class="current_footer"><a href="../works/index.html">works</a></li>
+                <li class="current_footer"><a href="../works/work1.html">works</a></li>
                 <li><a href="../contact/index.html">contact</a></li>
             </ul>
         </div>
