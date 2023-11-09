@@ -4330,4 +4330,8 @@ dl.detail_text div {
 
 .priming_img {
   margin-bottom: 30px;
+}
+
+.btn_none {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
