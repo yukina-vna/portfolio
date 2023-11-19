@@ -661,35 +661,35 @@ body {
         }
     }
 
-    // circleのアニメーション
-    /* fadeUp */
+//     // circleのアニメーション
+//     /* fadeUp */
 
-.fadeUp{
-    animation-name:fadeUpAnime;
-    animation-duration:1.2s;
-    animation-fill-mode:forwards;
-    opacity:0;
-    }
+// .fadeUp{
+//     animation-name:fadeUpAnime;
+//     animation-duration:1.2s;
+//     animation-fill-mode:forwards;
+//     opacity:0;
+//     }
     
-    @keyframes fadeUpAnime{
-      from {
-        opacity: 0;
-      transform: translateY(100px);
-      }
+//     @keyframes fadeUpAnime{
+//       from {
+//         opacity: 0;
+//       transform: translateY(100px);
+//       }
     
-      to {
-        opacity: 1;
-      transform: translateY(0);
-      }
-    }
+//       to {
+//         opacity: 1;
+//       transform: translateY(0);
+//       }
+//     }
     
     
-    /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
+//     /* スクロールをしたら出現する要素にはじめに透過0を指定　*/
      
-    .fadeUpTrigger{
-        opacity: 0;
-    }
-    // アニメーションここまで
+//     .fadeUpTrigger{
+//         opacity: 0;
+//     }
+//     // アニメーションここまで
    
     .myworks {
         display: flex;
@@ -706,6 +706,42 @@ body {
         // height: 300px;
         background: #dcdde7;
         margin-bottom: 47px;
+
+        position: relative;
+    overflow: hidden;
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        transition: 0.3s cubic-bezier(0.45, 0, 0.55, 1);
+        opacity: 0;
+        pointer-events: none;
+    }
+    &::before {
+        background: rgba(23,28,97,0.6);
+        width: 100%;
+        height: 100%;
+    }
+    &::after {
+        color: #fffddf;
+        content: "view more";
+        font-size: 18px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        right: 0;
+    }
+    &:hover::before,
+    &:hover::after {
+        opacity: 1;
+    }
+
             }
     .myworks_content_banner {
         img {
@@ -715,6 +751,41 @@ body {
         aspect-ratio: 1;
         // height: 300px;
         background: #dcdde7;
+
+        position: relative;
+    overflow: hidden;
+    &::before,
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        transition: 0.3s cubic-bezier(0.45, 0, 0.55, 1);
+        opacity: 0;
+        pointer-events: none;
+    }
+    &::before {
+        background: rgba(23,28,97,0.6);
+        width: 100%;
+        height: 100%;
+    }
+    &::after {
+        color: #fffddf;
+        content: "view more";
+        font-size: 18px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        bottom: 0;
+        right: 0;
+    }
+    &:hover::before,
+    &:hover::after {
+        opacity: 1;
+    }
     }
     .myworks_content_site,
     .myworks_content_banner {

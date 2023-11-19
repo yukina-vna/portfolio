@@ -161,3 +161,40 @@ $(function () {
         $(".sp_nav").fadeToggle();
     });
 });
+
+// TOPページの丸のアニメーション
+// 動きのきっかけの起点となるアニメーションの名前を定義
+// function fadeAnime() {
+//     // ふわっ
+//     $(".fadeUpTrigger").each(function () {
+//         //fadeUpTriggerというクラス名が
+//         var elemPos = $(this).offset().top - 30; //要素より、50px上の
+//         var scroll = $(window).scrollTop();
+//         var windowHeight = $(window).height();
+//         if (scroll >= elemPos - windowHeight) {
+//             $(this).addClass("fadeUp"); // 画面内に入ったらfadeUpというクラス名を追記
+//         }
+//     });
+// }
+
+// スクロール時のイベントリスナーを追加する
+$(window).scroll(function () {
+    fadeAnime();
+});
+
+// ドキュメントの読み込みが完了したら実行される
+$(document).ready(function () {
+    fadeAnime(); // 初回の表示を行う
+});
+
+function fadeAnime() {
+    // ふわっ
+    $(".fadeUpTrigger").each(function () {
+        var elemPos = $(this).offset().top - 30;
+        var scroll = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        if (scroll >= elemPos - windowHeight) {
+            $(this).addClass("fadeUp");
+        }
+    });
+}
