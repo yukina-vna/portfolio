@@ -19,6 +19,14 @@
   margin: 0 auto;
 }
 
+.header_menu_pc {
+  padding-top: 15px;
+}
+
+.header_logo {
+  margin-top: -5px;
+}
+
 .concept_text {
   width: 66%;
   padding-left: 40px;

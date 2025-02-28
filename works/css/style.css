@@ -3,6 +3,14 @@
   padding: 0 5%;
 }
 
+.header_menu_pc {
+  padding-top: 15px;
+}
+
+.header_logo {
+  margin-top: -5px;
+}
+
 #works_title {
   max-width: 1000px;
   margin: 0 auto;

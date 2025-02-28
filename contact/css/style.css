@@ -33,6 +33,14 @@
   display: none;
 }
 
+.header_menu_pc {
+  padding-top: 15px;
+}
+
+.header_logo {
+  margin-top: -5px;
+}
+
 @media screen and (max-width: 767px) {
   #contact_title,
   .contact_form {
