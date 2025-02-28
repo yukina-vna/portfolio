@@ -91,7 +91,7 @@ h2 {
 .header_logo_fv {
   width: 120px;
   position: absolute;
-  top: 5%;
+  top: 3%;
   left: 5%;
   z-index: 200;
 }
@@ -110,7 +110,7 @@ h2 {
   animation: anime 0.7s forwards;
 }
 .is-fixed img {
-  width: 70px;
+  width: 65px;
 }
 .is-fixed .header_menu_pc {
   top: 30px;
@@ -158,6 +158,21 @@ h2 {
 }
 .header_menu_pc ul li:last-child {
   padding-right: 0;
+}
+.header_menu_pc ul li:first-child {
+  margin-top: -10px;
+  margin-right: 0;
+  padding-right: 10px;
+}
+
+.header_sns {
+  width: 90px;
+  margin-top: -5px;
+}
+
+.sns_X img {
+  width: 50px;
+  margin-top: -5px;
 }
 
 #mv {
@@ -674,6 +689,7 @@ h2 {
   width: 30%;
   aspect-ratio: 1;
   background: #dcdde7;
+  margin-bottom: 47px;
   position: relative;
   overflow: hidden;
 }
