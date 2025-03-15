@@ -280,6 +280,9 @@ html {
     width: 90px;
     margin-top: -5px;
 }
+.header_sns.sns_X {
+    margin-right: 0;
+}
 .sns_X img {
     width: 50px;
     margin-top: -5px;
